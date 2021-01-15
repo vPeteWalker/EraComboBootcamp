@@ -1,7 +1,7 @@
 .. _labsetup:
 
 ----------------------
-MSSQL Lab Setup
+Lab Setup
 ----------------------
 
 Welcome to the Databases bootcamp. This bootcamp is meant to provide you with first hand experience in why Nutanix is an ideal platform for Database workloads.
