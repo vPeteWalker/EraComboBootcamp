@@ -4,7 +4,7 @@
 DB Administration with Era
 --------------------------
 
-**In this lab you will Administor your ORACLE DB**
+**In this lab you will Administer your ORACLE DB**
 
 Explore Your Database
 ++++++++++++++++++++++
