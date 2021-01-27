@@ -1,8 +1,8 @@
-.. _deploy_oracle:
+.. _configure_oracle:
 
------------------
-Deploying Oracle
------------------
+-------------------------------------------
+Configuring Your Oracle and Era Environment
+-------------------------------------------
 
 Traditional database VM deployment resembles the diagram below. The process generally starts with a IT ticket for a database (from Dev, Test, QA, Analytics, etc.). Next one or more teams will need to deploy the storage resources and VM(s) required. Once infrastructure is ready, a DBA needs to provision and configure database software. Once provisioned, any best practices and data protection/backup policies need to be applied. Finally the database can be handed over to the end user. That's a lot of handoffs, and the potential for a lot of friction.
 
@@ -11,7 +11,7 @@ Traditional database VM deployment resembles the diagram below. The process gene
 Whereas with a Nutanix cluster and Era, provisioning and protecting a database should take you no longer than it took to read this intro.
 
 Source Oracle VM
-++++++++++++++++++++++
+++++++++++++++++
 
 **In this lab you will deploy a Oracle VM, by cloning a source Oracle 19c Source VM. This VM will act as a master image to create a profile for deploying additional Oracle VMs using Era.**
 
@@ -41,20 +41,20 @@ This VM is running Oracle 19c with April PSU patches applied.
 Exploring Era Resources
 +++++++++++++++++++++++
 
-Era is distributed as a virtual appliance that can be installed on either AHV or ESXi. For the purposes of conserving memory resources, a shared Era server has already been deployed on your cluster.
+Era is distributed as a virtual appliance that can be installed on either AHV or ESXi. For the purposes of this workshop, a shared Era server has already been deployed on your cluster.
 
 .. note::
 
-   If you're interested, instructions for the brief installation of the Era appliance can be found `here <https://portal.nutanix.com/#/page/docs/details?targetId=Nutanix-Era-User-Guide-v12:era-era-installing-on-ahv-t.html>`_.
+   If you're interested, instructions for the brief installation of the Era appliance can be found `here <https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Era-User-Guide-v2_1:era-era-installation-c.html>`_. This includes instructions for both AHV and ESXi.
 
 #. In **Prism Central > VMs > List**, identify the IP address assigned to the **EraServer-\*** VM using the **IP Addresses** column.
 
-#. Open \https://*ERA-VM-IP:8443*/ in a new browser tab.
+#. Open \https://`<ERA-VM-IP>`:8443/ in a new browser tab.
 
 #. Login using the following credentials:
 
    - **Username** - admin
-   - **Password** - *<Cluster Password>*
+   - **Password** - `<CLUSTER-PASSWORD>`
 
 #. From the **Dashboard** dropdown, select **Administration**.
 
@@ -62,49 +62,23 @@ Era is distributed as a virtual appliance that can be installed on either AHV or
 
    .. figure:: images/6.png
 
-#. Select **Era Resources** from the left-hand menu.
-
-#. Review the configured Networks. If no Networks show under **VLANs Available for Network Profiles**, click **Add**. Select **Secondary** VLAN and click **Add**.
-
-   .. note::
-
-      Leave **Manage IP Address Pool** unchecked, as we will be leveraging the cluster's IPAM to manage addresses
-
-   .. figure:: images/era_networks_001.png
-
 #. From the dropdown menu, select **SLAs**.
 
-   .. figure:: images/7a.png
-
-   Era has five built-in SLAs (Gold, Silver, Bronze, Zero, and Brass). SLAs control how the database server is backed up. This can be with a combination of Continuous Protection, Daily, Weekly Monthly and Quarterly protection intervals.
+   Era has five built-in SLAs: Gold, Silver, Bronze, Brass, and Zero. SLAs control how the database server is backed up, or in the case of the *Zero* SLA, excluded from being backed up entirely. Backups can be configured with a combination of Continuous Protection, Daily, Weekly, Monthly, and Quarterly protection intervals.
 
 #. From the dropdown menu, select **Profiles**.
 
-   Profiles pre-define resources and configurations, making it simple to consistently provision environments and reduce configuration sprawl. For example, Compute Profiles specifiy the size of the database server, including details such as vCPUs, cores per vCPU, and memory.
-
-#. If you do not see any networks defined under **Network**, click **+ Create**.
-
-   .. figure:: images/8.png
-
-#. Fill out the following fields and click **Create**:
-
-   - **Engine** - ORACLE
-   - **Type** - Single Instance
-   - **Name** - Primary_ORACLE_NETWORK
-   - **Public Service VLAN** - Secondary
-
-   .. figure:: images/9.png
+   Profiles pre-define resources and configurations, making it simple to consistently provision environments and reduce configuration sprawl. For example, a *Compute* Profile specifies the size of the database server, including details such as vCPUs, cores per vCPU, and memory.
 
 Register Oracle Server with Era
 +++++++++++++++++++++++++++++++
 
 In this exercise, you will register your April PSU VM and register it as version 1.0 of your Oracle 19c Software Profile. The Software Profile is a template containing both the operating system and database software, and can be used to deploy additional database servers.
 
-#. In **Era**, select **Database Servers** from the dropdown menu and **List** from the lefthand menu.
+#. Within **Era**, select **Database Server VMs** from the dropdown menu, and then **List** from the left-hand menu.
 
-#. Click **+ Register** and fill out the following **Database Server** fields:
+#. Click **+ Register > Oracle**, fill out the following fields, and click **Register**.
 
-   - **Engine** - Oracle
    - **IP Address or Name of VM** - *UserXX*\ **-Oracle19cSource**
    - **Database Version** - 19.0.0.0
    - **Era Drive User** - oracle
@@ -112,6 +86,8 @@ In this exercise, you will register your April PSU VM and register it as version
    - **Grid Infrastructure Home** - /u01/app/19.0.0/grid
    - **Provide Credentials Through** - Password
    - **Password** - Nutanix/4u
+
+   .. figure:: images/2.png
 
    .. note::
 
@@ -121,53 +97,46 @@ In this exercise, you will register your April PSU VM and register it as version
 
       Grid Infrastructure Home is the directory where the Oracle Grid Infrastructure software is installed. This is only applicable for Oracle RAC or SIHA databases.
 
-   .. figure:: images/2.png
+#. If you see a similar warning as below, you can safely ignore it.
 
-#. Click **Register**
+   .. figure:: images/2a.png
 
-#. Select **Operations** from the dropdown menu to monitor the registration. This process should take approximately 5 minutes. Wait for the registration operation to successfully complete before moving on.
+#. Select **Operations** from the dropdown menu to monitor the registration. This process should take approximately 5 minutes. Wait for the registration operation to successfully complete before proceeding.
 
-   Once the *Initials*\ **_oracle_base** server has been registered with Era, we need to create a software profile in order to deploy additional Oracle VMs.
+   Once the *Initials*\ **_oracle_base** database has been registered within Era from your *UserXX*\ **-Oracle19cSource** VM, we need to create a software profile in order to deploy additional copies of this Oracle database.
 
-#. Select **Profiles** from the dropdown menu and **Software** from the lefthand menu.
+#. Select **Profiles** from the dropdown menu, and then **Software** from the left-hand menu.
 
-#. Click **+ Create** and fill out the following fields:
+#. Click **+ Create > Oracle > Single Instance Database** and fill out the following fields:
 
-   - **Engine** - Oracle
-   - **Type** - Single Instance
    - **Name** - *Initials*\ _ORACLE_19C
    - **Description** - (Optional)
    - **Database Server** - Select your registered *UserXX*\ **-Oracle19cSource**
 
-   .. figure:: images/3.png
-
-#. Click **Create**.
+#. Click **Next > Create**.
 
 #. Select **Operations** from the dropdown menu to monitor the registration. This process should take approximately 5 minutes.
 
 Register Your Database
 ++++++++++++++++++++++
 
-#. In **Era**, select **Databases** from the dropdown menu and **Sources** from the lefthand menu.
+#. In **Era**, select **Databases** from the dropdown menu, and then **Sources** from the left-hand menu.
 
    .. figure:: images/11.png
 
-#. Click **+ Register** and fill out the following fields:
+#. Click **+ Register > Oracle > Single Instance Database** and fill out the following fields:
 
-   - **Engine** - ORACLE
    - **Database is on a Server that is:** - Registered
    - **Registered Database Servers** - Select your registered *UserXX*\ **-Oracle19cSource**
 
-   .. figure:: images/12.png
-
-#. Click **Next**
+#. Click **Next**.
 
    - **Database Name in Era** - *Initials*\ -orcl
    - **SID** - orcl19c
 
    .. note::
 
-     The Oracle System ID (SID) is used to uniquely identify a particular database on a system. For this reason, one cannot have more than one database with the same SID on a computer system. When using RAC, all instances belonging to the same database must have unique SID's.
+     The Oracle System ID (SID) is used to uniquely identify a particular database on a system. For this reason, one cannot have more than one database with the same SID on a computer system. When using RAC, all instances belonging to the same database must have unique SIDs.
 
    .. figure:: images/13.png
 
