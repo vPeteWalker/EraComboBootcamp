@@ -14,7 +14,7 @@
    :name: _dbs
    :hidden:
 
-   deploy_mssql/deploy_mssql
+   configure_mssql/configure_mssql
    admin_mssqldb/admin_mssqldb
    deploy_mssql_era/deploy_mssql_era
    webtier/webtier
@@ -26,7 +26,7 @@
    :name: _dbs
    :hidden:
 
-   deploy_oracle/deploy_oracle
+   configure_oracle/configure_oracle
    deploy_oracle_era/deploy_oracle_era
    admin_oracle/admin_oracle
    patching_oracle/patching_oracle
@@ -60,16 +60,16 @@
 Getting Started
 ---------------
 
-Welcome to the Databases bootcamp. This bootcamp is meant to provide you with first hand experience in why Nutanix is an ideal platform for Database workloads.
+Welcome to the Databases bootcamp. This bootcamp is meant to provide you with first hand experience in why Nutanix is an ideal platform for database workloads.
 
-Historically, it has been a challenge to virtualize SQL Server because of the high cost of traditional virtualization stacks and the impact that a SAN-based architecture can have on performance. Businesses and their IT departments have constantly fought to balance cost, operational simplicity, and consistent predictable performance.
+Historically, it has been a challenge to virtualize Microsoft SQL Server because of the high cost of traditional virtualization stacks, and the impact that a SAN-based architecture can have on performance. Businesses and their IT departments have constantly fought to balance cost, operational simplicity, and consistent predictable performance.
 
-The Nutanix Enterprise Cloud removes many of these challenges and makes virtualizing a business-critical application such as SQL Server much easier. The Acropolis Distributed Storage Fabric (DSF) is a software-defined solution that provides all the features one typically expects in an enterprise SAN, without a SAN’s physical limitations and bottlenecks. SQL Server particularly benefits from the following DSF features:
+The Nutanix Enterprise Cloud removes many of these challenges, and makes virtualizing a business-critical application such as Microsoft SQL Server much easier. The Acropolis Distributed Storage Fabric (ADSF) is a software-defined solution that provides all the features one typically expects in an enterprise SAN, without a typical SAN’s physical limitations and bottlenecks. Microsoft SQL Server particularly benefits from the following ADSF features:
 
-- Localized I/O and the use of flash for index and key database files to lower operation latency.
+- Localized I/O, and the use of flash for index and key database files to lower operation latency.
 - A highly distributed approach that can handle both random and sequential workloads.
 - The ability to add new nodes and scale the infrastructure without system downtime or performance impact.
-- Nutanix data protection and disaster recovery workflows that simplify backup operations and business continuity processes.
+- Built-in Nutanix data protection and disaster recovery workflows that simplify backup operations and business continuity processes.
 
 In addition to solving common infrastructure problems for hosting business critical applications, Nutanix also seeks to address many of the key pain points associated with managing databases.
 
@@ -77,21 +77,22 @@ In addition to solving common infrastructure problems for hosting business criti
 
 Based on a 2018 IDC study of 500 North American companies with more than 1,000 employees, they estimate:
 
-- 77% of the organizations have more than 200 database instances in their production
-- 82% have more than 10 copies of each DB
-- 45%-60% the total storage capacity is dedicated to accommodating copy data
-- 32% of database clones require daily refreshes for analytics of dev/test
-- Copy data will cost IT organizations $55.63 billion in 2020
+- 77% of the organizations have more than 200 database instances in their production environments.
+- 82% have more than 10 copies of each database.
+- 45%-60% of the total storage capacity is dedicated to accommodating copy data (i.e. copies of production data).
+- 32% of database clones require daily refreshes for analytics of dev/test.
+- Copy data will cost IT organizations $55.63 billion in 2020.
 
-Maintaining the status quo leads to inefficient usage of both storage and worse, of administrator time. Meet Nutanix Era.
+Maintaining the status quo leads to inefficient usage of both storage, and perhaps worse, an administrator's time. Meet Nutanix Era.
 
 .. figure:: images/5.png
 
-Nutanix Era provides DBaaS for your Enterprise Cloud. Leveraging the Nutanix Enterprise Cloud OS, we are able to take advantage of the power of full stack - data, compute, and software. Nutanix Era hides the complexity of database operations and provides common APIs, CLI, and consumer-grade GUI experience for multiple database engines. It makes database operations such as cloning efficient, thereby driving down the TCO of database management for our customers.
+Nutanix Era provides DBaaS for your Enterprise Cloud. Leveraging the Nutanix Enterprise Cloud, we are able to take advantage of the power of full stack - storage, compute, and software. Nutanix Era hides the complexity of database operations and provides common APIs, CLI, and consumer-grade GUI experience for multiple database engines. It makes database operations such as cloning efficient, thereby driving down the TCO of database management for our customers.
 
 
 What's New
 ++++++++++
+
 
 - Workshop updated for the following software versions:
     - AOS 5.17.x | 5.18.x | 5.19.x
@@ -109,17 +110,17 @@ Agenda
 Era with MSSQL Track
 ....................
 
-- Deploy MSSQL
+- Deploy MSSQL (?)
 - Admin MSSQL with Era
 - Deploy MSSQL with Era
-- Patching MSSQL
+- Patch MSSQL with Era (?)
 
-Era with oracle Track
+Era with Oracle Track
 .....................
 
-- Deploy Oracle
+- Deploy Oracle (?)
 - Deploy Oracle with Era
-- Patching Oracle with Era
+- Patch Oracle with Era
 - Admin Oracle with Era
 
 Optional labs:
@@ -136,16 +137,16 @@ Introductions
 Initial Setup
 +++++++++++++
 
-- Take note of the *Passwords* being used.
+- Take note of the *Passwords* being used
 - Log into your virtual desktops (connection info below)
 
 Cluster assignment
 ++++++++++++++++++
 
-The instructor will tell the attendees their assigned clusters.
+The instructor will tell the attendees their assigned clusters
 
 .. note::
-  If these are Single Node Clusters (SNCs) pay close attention on the networking part. The SNCs are completely different setup and configured compared to the "normal" three/four node clusters
+  If these are Single Node Clusters (SNCs) pay close attention to networking. The SNCs are setup and configured differently compared to the three/four node clusters. Details are within the different cluster sections directly below.
 
 Environment Details
 +++++++++++++++++++
@@ -155,7 +156,7 @@ Nutanix Workshops are intended to be run in the Nutanix Hosted POC environment. 
 Networking
 ..........
 
-As we are able to provide three/four node clusters and single node clusters in the HPOC environment, we need to describe each sort of cluster separately. The clusters are setup and configured differently.
+As we are able to provide three/four node clusters and single node clusters in the HPOC environment, we need to describe each sort of cluster separately.
 
 Three/Four node HPOC clusters
 -----------------------------
@@ -171,7 +172,6 @@ For example:
 - **Cluster Name** - POC055
 - **Subnet** - 10.38.55.0
 - **Cluster IP** - 10.21.55.37 for the VIP of the Cluster
-
 
 Throughout the Workshop there are multiple instances where you will need to substitute *XYZ* with the correct octet for your subnet, for example:
 
@@ -210,9 +210,9 @@ Each cluster is configured with 2 VLANs which can be used for VMs:
 Single Node HPOC Clusters
 -------------------------
 
-For some workshops we are using Single Node Clusters (SNC). The reason for this is to allow more people to have a dedicated cluster but still have enough free clusters for the bigger workshops including those for customers.
+For some workshops we are using Single Node Clusters (SNCs). The reason for this is to allow more people to have a dedicated cluster, but still have enough free clusters for the larger workshops, including those for customers.
 
-The network in the SNC config is using a /26 network. This splits the network address into four equal sizes that can be used for workshops. The below table describes the setup of the network in the four partitions. It provides essential information for the workshop with respect to the IP addresses and the services running at that IP address.
+The network in the SNC config is using a /26 network. This splits the network address into four equal sizes that can be used for workshops. The below table describes the setup of the network in the four partitions. It provides essential information for the workshop with respect to the IP addresses and the service running at that IP address.
 
 .. list-table::
   :widths: 15 15 15 15 40
@@ -278,7 +278,6 @@ The network in the SNC config is using a /26 network. This splits the network ad
     - 10.38.x.230-250
     - Primary network IPAM
     - 6 Free IPs free for static assignment
-
 
 Credentials
 ...........

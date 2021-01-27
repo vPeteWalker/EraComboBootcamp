@@ -4,18 +4,18 @@
 Patching Oracle with Era
 ------------------------
 
-Maintaining consistent patch levels across database servers in a traditional environment can be a very difficult process. Era makes this simple by providing a means of database engine patching through versioned software profiles. Groups of database servers can be patched or rolled back through Era using the web interface, or via CLI or API.
+Maintaining consistent patch levels across database servers in a traditional environment can be a very difficult, and time-consuming process. Each quarter, Oracle releases a grouping of patches referred to as a Patch Set Updates (PSU). Era makes this simple by providing a means of database engine patching through versioned software profiles. Groups of database servers can be patched, or rolled back, through Era - using the web interface, CLI, or API.
 
-Each quarter, Oracle releases a grouping of patches referred to as a PSU. **In this lab you will walk through the deployment and patching of both Oracle and Grid software for an Oracle 19c database using Era.**
+**In this lab you will walk through the deployment and patching of both Oracle and Grid software for an Oracle 19c database using Era.**
 
 Patching Base Oracle VM
 +++++++++++++++++++++++
 
 In this exercise, you will apply the October PSU patches to your manually cloned VM, register the database server with Era, and then use it as the basis for creating a new version of your *Initials*\ **_ORACLE_19C** Software Profile.
 
-#. In **Prism Central**, note the IP address of your *Initials*\ **_oracle_patched** VM.
+#. Within **Prism Central**, note the IP address of your *Initials*\ **_oracle_patched** VM.
 
-#. Connect to your *Initials*\ **_oracle_patched** VM via SSH using the following credentials:
+#. SSH to your *Initials*\ **_oracle_patched** VM using the following credentials:
 
    - **User Name** - root
    - **Password** - Nutanix/4u
