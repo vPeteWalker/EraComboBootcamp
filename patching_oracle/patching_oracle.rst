@@ -4,9 +4,37 @@
 Patching Oracle with Era
 ------------------------
 
-Maintaining consistent patch levels across database servers in a traditional environment can be a very difficult, and time-consuming process. Each quarter, Oracle releases a grouping of patches referred to as a Patch Set Updates (PSU). Era makes this simple by providing a means of database engine patching through versioned software profiles. Groups of database servers can be patched, or rolled back, through Era - using the web interface, CLI, or API.
+Maintaining consistent patch levels across database servers in a traditional environment can be a very difficult, and time-consuming process. Each quarter, Oracle releases a grouping of patches referred to as Patch Set Updates (PSU). Era makes this simple by providing a means of patching via software profiles. Individual or groups of database servers can be patched, or rolled back through Era, using the web interface, CLI, or API.
 
 **In this lab you will walk through the deployment and patching of both Oracle and Grid software for an Oracle 19c database using Era.**
+
+Source Oracle VM
+++++++++++++++++
+
+**In this lab you will deploy a Oracle VM, by cloning a source Oracle 19c Source VM. This VM will act as a master image to create a profile for deploying additional Oracle VMs using Era.**
+
+This VM is running Oracle 19c with April PSU patches applied.
+
+#. In **Prism Central**, select :fa:`bars` **> Virtual Infrastructure > VMs**.
+
+   .. figure:: images/1.png
+
+#. Select the checkbox for *UserXX*\ **-Oracle19cSource**, and click **Actions > Clone**.
+
+   .. figure:: images/1b.png
+
+#. Fill out the following fields:
+
+   - **Number Of Clones** - 1
+   - **Name** - *UserXX*\ **-Oracle19cSource-Patched**
+   - **Description** - (Optional) Description for your VM.
+   - **vCPU(s)** - 2
+   - **Number of Cores per vCPU** - 1
+   - **Memory** - 8 GiB
+
+#. Click **Save** to create the VM.
+
+#. Select VM and click **Actions > Power On**.
 
 Patching Base Oracle VM
 +++++++++++++++++++++++

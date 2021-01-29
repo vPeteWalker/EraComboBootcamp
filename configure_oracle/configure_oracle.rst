@@ -10,33 +10,9 @@ Traditional database VM deployment resembles the diagram below. The process gene
 
 Whereas with a Nutanix cluster and Era, provisioning and protecting a database should take you no longer than it took to read this intro.
 
-Source Oracle VM
-++++++++++++++++
+   .. note::
 
-**In this lab you will deploy a Oracle VM, by cloning a source Oracle 19c Source VM. This VM will act as a master image to create a profile for deploying additional Oracle VMs using Era.**
-
-This VM is running Oracle 19c with April PSU patches applied.
-
-#. In **Prism Central**, select :fa:`bars` **> Virtual Infrastructure > VMs**.
-
-   .. figure:: images/1.png
-
-#. Select the checkbox for *UserXX*\ **-Oracle19cSource**, and click **Actions > Clone**.
-
-   .. figure:: images/1b.png
-
-#. Fill out the following fields:
-
-   - **Number Of Clones** - 1
-   - **Name** - *UserXX*\ **-Oracle19cSource-Patched**
-   - **Description** - (Optional) Description for your VM.
-   - **vCPU(s)** - 2
-   - **Number of Cores per vCPU** - 1
-   - **Memory** - 8 GiB
-
-#. Click **Save** to create the VM.
-
-#. Select VM and click **Actions > Power On**.
+      During this workshop, if you receive any errors when inputting information, that may be a result of copying and pasting into that particular screen. Please attempt to manually type in the same information, and proceed
 
 Exploring Era Resources
 +++++++++++++++++++++++
@@ -73,7 +49,7 @@ Era is distributed as a virtual appliance that can be installed on either AHV or
 Register Oracle Server with Era
 +++++++++++++++++++++++++++++++
 
-In this exercise, you will register your April PSU VM and register it as version 1.0 of your Oracle 19c Software Profile. The Software Profile is a template containing both the operating system and database software, and can be used to deploy additional database servers.
+In this exercise, you will register your Oracle VM as version 1.0 of your Oracle 19c Software Profile. The Software Profile is a template containing both the operating system and database software, and can be used to deploy additional database servers.
 
 #. Within **Era**, select **Database Server VMs** from the dropdown menu, and then **List** from the left-hand menu.
 

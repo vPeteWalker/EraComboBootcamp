@@ -72,17 +72,15 @@ Take Manual Snapshot of Database
 
 #. Within **Era**, select **Databases** from the dropdown menu, and then **Sources** from the left-hand menu.
 
-#. Click on the Time Machine for your Database *Initials*\ _proddb_TM
+#. Click on the Time Machine for your Database *Initials*\ _proddb_TM.
 
    .. figure:: images/6.png
-
-#. Click **Actions > Log Catch Up**.
-
-   .. figure:: images/12.png
 
 #. Click **Yes**. This should take approximately 2-3 minutes to complete.
 
 #. Click **Actions > Snapshot**. Enter *Initials*\ _proddb-1st-Snapshot as the *Snapshot Name*, and click **Create**.
+
+   .. figure:: images/7.png
 
 #. Select **Operations** from the dropdown menu to monitor the registration. This process should take approximately 2-5 minutes.
 
