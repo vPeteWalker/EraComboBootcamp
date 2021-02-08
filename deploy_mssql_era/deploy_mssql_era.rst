@@ -84,7 +84,7 @@ You've completed all the one time operations required to be able to provision an
 
 #. Click **Provision** to begin creating your new database server VM and **fiesta** database.
 
-#. Select **Operations** from the dropdown menu to monitor the provisioning. This process should take approximately 20 minutes.
+#. Select **Operations** from the dropdown menu to monitor the provisioning. This process should take between 20-60 minutes.
 
    .. figure:: images/22.png
 
