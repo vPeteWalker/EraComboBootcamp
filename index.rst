@@ -337,6 +337,8 @@ Each cluster has a dedicated domain controller VM, **DC**, responsible for provi
      - user01-user25
      - nutanix/4u
 
+.. _clusterdetails:
+
 Access Instructions
 +++++++++++++++++++
 

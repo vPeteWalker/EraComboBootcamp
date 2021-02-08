@@ -37,7 +37,7 @@ Nutanix Era provides DBaaS for your Enterprise Cloud. Leveraging the Nutanix Ent
 Configuring a Project
 +++++++++++++++++++++
 
-In this lab you will leverage multiple pre-built Calm Blueprints to provision your applications...
+In this lab you will leverage multiple pre-built Calm Blueprints to provision your applications.
 
 #. In **Prism Central**, select :fa:`bars` **> Services > Calm**.\
 
@@ -60,7 +60,7 @@ In this lab you will leverage multiple pre-built Calm Blueprints to provision yo
 
    .. figure:: images/3.png
 
-#. Click **Save & Configure Environment**.
+#. Proceed to the next section.
 
 ..  Deploying a Windows Tools VM
   ++++++++++++++++++++++++++++
