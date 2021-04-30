@@ -19,28 +19,23 @@ Links
 Creating a Software Profile Version
 +++++++++++++++++++++++++++++++++++
 
-Software Profile Versions are created in Era to support patching of SQL Server database server instances. A Software Profile Version can be created simply by uploading a SQL Server update executable. The SQL Server update can then be used to patch other database server VMs or when provisioning new database server VMs with the updated Software Profile.
+A software profile versions are created in Era to support patching of SQL Server database server instances. A software profile version can be created by uploading a SQL Server update executable. The SQL Server update can then be used to patch other database server VMs or when provisioning new database server VMs with the updated software profile.
 
 #. Within Era, select **Profiles** from the drop-down menu.
 
-#. On the left-hand side, select **Software**, and then click on the software profile under which you wish to create a new version (i.e. *Initials*\ -MSSQL_2016).
-
-   Currently you should only see the base (1.0) version of the profile.
+#. On the left-hand side, select **Software**, and then click on the software profile under which you wish to create a new version (i.e. *UserXX*\ _MSSQL_2016).
 
 #. Click **Create**. The *Create Software Profile Version* window appears.
 
 #. Do the following in the indicated fields:
 
-   - **Name** *Initials*\ -SQL2016_SP1_CU15
-   - **Patch File Location** - File Share
-   - **File Share** - ``\\10.42.194.11\workshop_staging\era\SQLServer\MSSQL_Patches\SQLServer2016-KB4495257-x64.exe``
-   - **User Name** - Refer to **Username** in :ref:`clusterdetails` (ex. *USERXX*)
-   - **Password** - Refer to **Password** in :ref:`clusterdetails`
+   - **Name** *UserXX*\ _SQL2016_SP1_CU15
 
-      .. figure:: images/2.png MAKE NEW SS
+   - **Patch File Location** Upload ``SQLServer2016-KB4495257-x64.exe`` either from a file share (HPOC) or upload from your PC.
+
+      .. figure:: images/2.png
 
    - Wait for the upload to complete, and then click **Create**.
-   This should take approximately 3 minutes to complete.
 
 Updating a Software Profile Version
 +++++++++++++++++++++++++++++++++++
@@ -49,9 +44,9 @@ After profile creation is successful, you must publish the profile to make the p
 
 #. Within Era, select **Profiles** from the drop-down menu.
 
-#. On the left-hand side, select **Software**, and then click on the *Initials*\ -MSSQL_2016 software profile.
+#. On the left-hand side, select **Software**, and then click on the *UserXX*\ _MSSQL_2016 software profile.
 
-#. Select the *Initials*\ -SQL2016_SP1_CU15 profile version, and click **Update**. The *Update Software Profile Version* window appears.
+#. Select the *UserXX*\ _SQL2016_SP1_CU15 profile version, and click **Update**. The *Update Software Profile Version* window appears.
 
 #. In the *General* step, click on **Published**, and then click the check box for *By publishing this version of the software profile, I understand that Era will recommend that all databases using an earlier versions of this software profile should update to this new version. The recommendation will appear on the Database Server VM home page*.
 
@@ -80,9 +75,9 @@ Perform the following procedure to apply updates from the available software pro
 
 #. Select the following in the indicated fields:
 
-   - **Software Profile** *Initials*\ -MSSQL_2016
+   - **Software Profile** *UserXX*\ _MSSQL_2016
 
-   - **Version** *Initials*\ -SQL2016_SP1_CU15
+   - **Version** *UserXX*\ _SQL2016_SP1_CU15
 
    - **Start Update** Now
 

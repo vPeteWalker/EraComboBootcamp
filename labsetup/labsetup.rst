@@ -1,10 +1,10 @@
 .. _labsetup:
 
 ----------------------
-Lab Setup
+MSSQL Lab Setup
 ----------------------
 
-Welcome to the Databases bootcamp. This bootcamp is meant to provide you with first hand experience in why Nutanix is an ideal platform for Database workloads.
+Welcome to the *Databases: Era with MSSQL* bootcamp. This bootcamp is meant to provide you with first-hand experience in why Nutanix is an ideal platform for Database workloads.
 
 Historically, it has been a challenge to virtualize SQL Server because of the high cost of traditional virtualization stacks and the impact that a SAN-based architecture can have on performance. Businesses and their IT departments have constantly fought to balance cost, operational simplicity, and consistent predictable performance.
 
@@ -37,17 +37,17 @@ Nutanix Era provides DBaaS for your Enterprise Cloud. Leveraging the Nutanix Ent
 Configuring a Project
 +++++++++++++++++++++
 
-In this lab you will leverage multiple pre-built Calm Blueprints to provision your applications.
+In this lab you will leverage multiple pre-built Calm Blueprints to provision your applications...
 
 #. In **Prism Central**, select :fa:`bars` **> Services > Calm**.\
 
-#. Select **Projects** from the lefthand menu and click **+ Create Project**.
+#. Select **Projects** from the left-hand menu and click **+ Create Project**.
 
    .. figure:: images/2.png
 
 #. Fill out the following fields:
 
-   - **Project Name** - *Initials*\ -Project
+   - **Project Name** - *UserXX*\ -Project
    - Under **Users, Groups, and Roles**, select **+ User**
       - **Name** - Administrators
       - **Role** - Project Admin
@@ -60,7 +60,7 @@ In this lab you will leverage multiple pre-built Calm Blueprints to provision yo
 
    .. figure:: images/3.png
 
-#. Proceed to the next section.
+#. Click **Save & Configure Environment**.
 
 ..  Deploying a Windows Tools VM
   ++++++++++++++++++++++++++++
@@ -73,7 +73,7 @@ In this lab you will leverage multiple pre-built Calm Blueprints to provision yo
 
   #. Fill out the following fields to complete the user VM request:
 
-     - **Name** - *Initials*\ -WinToolsVM
+     - **Name** - *UserXX*\ -WinToolsVM
      - **Description** - Manually deployed Tools VM
      - **vCPU(s)** - 2
      - **Number of Cores per vCPU** - 1
@@ -91,4 +91,4 @@ In this lab you will leverage multiple pre-built Calm Blueprints to provision yo
 
   #. Click **Save** to create the VM.
 
-  #. Power on your *Initials*\ **-WinToolsVM**.
+  #. Power on your *UserXX*\ **-WinToolsVM**.
