@@ -32,17 +32,17 @@ Era is distributed as a virtual appliance that can be installed on either AHV or
    - **Username** - admin
    - **Password** - `<CLUSTER-PASSWORD>`
 
-#. From the **Dashboard** dropdown, select **Administration**.
+#. From the **Dashboard** drop-down, select **Administration**.
 
 #. Under **Cluster Details**, note that Era has already been configured for your assigned cluster.
 
    .. figure:: images/6.png
 
-#. From the dropdown menu, select **SLAs**.
+#. From the drop-down menu, select **SLAs**.
 
    Era has five built-in SLAs: Gold, Silver, Bronze, Brass, and Zero. SLAs control how the database server is backed up, or in the case of the *Zero* SLA, excluded from being backed up entirely. Backups can be configured with a combination of Continuous Protection, Daily, Weekly, Monthly, and Quarterly protection intervals.
 
-#. From the dropdown menu, select **Profiles**.
+#. From the drop-down menu, select **Profiles**.
 
    Profiles pre-define resources and configurations, making it simple to consistently provision environments and reduce configuration sprawl. For example, a *Compute* Profile specifies the size of the database server, including details such as vCPUs, cores per vCPU, and memory.
 
@@ -51,11 +51,11 @@ Register Oracle Server with Era
 
 In this exercise, you will register your Oracle VM as version 1.0 of your Oracle 19c Software Profile. The Software Profile is a template containing both the operating system and database software, and can be used to deploy additional database servers.
 
-#. Within **Era**, select **Database Server VMs** from the dropdown menu, and then **List** from the left-hand menu.
+#. Within **Era**, select **Database Server VMs** from the drop-down menu, and then **List** from the left-hand menu.
 
 #. Click **+ Register > Oracle**, fill out the following fields, and click **Register**.
 
-   - **IP Address or Name of VM** - *UserXX*\ **-Oracle19cSource**
+   - **IP Address or Name of VM** - *USERXX*\ **-Oracle19cSource**
    - **Database Version** - 19.0.0.0
    - **Era Drive User** - oracle
    - **Oracle Database Home** - /u02/app/oracle/product/19.0.0/dbhome_1
@@ -77,33 +77,33 @@ In this exercise, you will register your Oracle VM as version 1.0 of your Oracle
 
    .. figure:: images/2a.png
 
-#. Select **Operations** from the dropdown menu to monitor the registration. This process should take approximately 5 minutes. Wait for the registration operation to successfully complete before proceeding.
+#. Select **Operations** from the drop-down menu to monitor the registration. This process should take approximately 5 minutes. Wait for the registration operation to successfully complete before proceeding.
 
-   Once the *Initials*\ **_oracle_base** database has been registered within Era from your *UserXX*\ **-Oracle19cSource** VM, we need to create a software profile in order to deploy additional copies of this Oracle database.
+   Once the *Initials*\ **_oracle_base** database has been registered within Era from your *USERXX*\ **-Oracle19cSource** VM, we need to create a software profile in order to deploy additional copies of this Oracle database.
 
-#. Select **Profiles** from the dropdown menu, and then **Software** from the left-hand menu.
+#. Select **Profiles** from the drop-down menu, and then **Software** from the left-hand menu.
 
 #. Click **+ Create > Oracle > Single Instance Database** and fill out the following fields:
 
    - **Name** - *Initials*\ _ORACLE_19C
    - **Description** - (Optional)
-   - **Database Server** - Select your registered *UserXX*\ **-Oracle19cSource**
+   - **Database Server** - Select your registered *USERXX*\ **-Oracle19cSource**
 
 #. Click **Next > Create**.
 
-#. Select **Operations** from the dropdown menu to monitor the registration. This process should take approximately 5 minutes.
+#. Select **Operations** from the drop-down menu to monitor the registration. This process should take approximately 5 minutes.
 
 Register Your Database
 ++++++++++++++++++++++
 
-#. In **Era**, select **Databases** from the dropdown menu, and then **Sources** from the left-hand menu.
+#. In **Era**, select **Databases** from the drop-down menu, and then **Sources** from the left-hand menu.
 
    .. figure:: images/11.png
 
 #. Click **+ Register > Oracle > Single Instance Database** and fill out the following fields:
 
    - **Database is on a Server that is:** - Registered
-   - **Registered Database Servers** - Select your registered *UserXX*\ **-Oracle19cSource**
+   - **Registered Database Servers** - Select your registered *USERXX*\ **-Oracle19cSource**
 
 #. Click **Next**.
 
@@ -125,4 +125,4 @@ Register Your Database
 
 #. Click **Register**
 
-#. Select **Operations** from the dropdown menu to monitor the registration. This process should take approximately 5 minutes.
+#. Select **Operations** from the drop-down menu to monitor the registration. This process should take approximately 5 minutes.

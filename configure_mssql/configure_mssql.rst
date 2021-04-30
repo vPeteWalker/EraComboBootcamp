@@ -13,9 +13,9 @@ Whereas with a Nutanix cluster and Era, provisioning and protecting a database s
 Source Microsoft SQL VM
 +++++++++++++++++++++++
 
-.. note:: Your `UserXX` designation is assigned by the SE leading the Bootcamp. Please do not proceed until this has been provided to you.
+.. note:: Your `USERXX` designation is assigned by the SE leading the Bootcamp. Please do not proceed until this has been provided to you.
 
-#. Log in to your *UserXX*\ **-MSSQLSourceVM** with the below credentials right-clicking on the VM name, and choosing **Launch Console**.
+#. Log in to your *USERXX*\ **-MSSQLSourceVM** with the below credentials right-clicking on the VM name, and choosing **Launch Console**.
 
    - **Username** - Administrator
    - **Password** - Nutanix/4u
@@ -24,7 +24,7 @@ Source Microsoft SQL VM
 
 #. Disable Windows Firewall for all networks.
 
-#. Open SQL Server Managment Studio (SSMS), choose **Windows Authentication** from the *Authentication* dropdown, and click **Connect**.
+#. Open SQL Server Managment Studio (SSMS), choose **Windows Authentication** from the *Authentication* drop-down, and click **Connect**.
 
 #. Verify you can browse the *SampleDB* database.
 
@@ -60,7 +60,7 @@ Source Microsoft SQL VM
 
   #. Disable Windows Firewall for all.
 
-  #. Open SQL Server Managment Studio (SSMS), choose **Windows Authentication** from the *Authentication* dropdown, and click **Connect**.
+  #. Open SQL Server Managment Studio (SSMS), choose **Windows Authentication** from the *Authentication* drop-down, and click **Connect**.
 
   #. Verify you can browse the **SampleDB**.
 
@@ -84,7 +84,7 @@ Era is distributed as a virtual appliance that can be installed on either AHV or
    - **Username** - admin
    - **Password** - `<CLUSTER-PASSWORD>`
 
-#. From the dropdown menu, select **Administration**.
+#. From the drop-down menu, select **Administration**.
 
 #. Select **Era Service** from the left-hand side. Note that Era has already been configured for your assigned cluster.
 
@@ -100,11 +100,11 @@ Era is distributed as a virtual appliance that can be installed on either AHV or
    ..
    ..    .. figure:: images/era_networks_001.png
 
-#. From the dropdown menu, select **SLAs**.
+#. From the drop-down menu, select **SLAs**.
 
    Era has five built-in SLAs: Gold, Silver, Bronze, Brass, and Zero. SLAs control how the database server is backed up, or in the case of the *Zero* SLA, excluded from being backed up entirely. Backups can be configured with a combination of Continuous Protection, Daily, Weekly, Monthly, and Quarterly protection intervals.
 
-#. From the dropdown menu, select **Profiles**.
+#. From the drop-down menu, select **Profiles**.
 
    Profiles pre-define resources and configurations, making it simple to consistently provision environments and reduce configuration sprawl. For example, a *Compute* Profile specifies the size of the database server, including details such as vCPUs, cores per vCPU, and memory.
 
@@ -136,15 +136,15 @@ You must meet the following Era requirements before you register a SQL Server da
 
 .. note::
 
-   Your *UserXX*\ **-MSSQLSourceVM** VM already meets all of these criteria.
+   Your *USERXX*\ **-MSSQLSourceVM** VM already meets all of these criteria.
 
-#. Within **Era**, select **Database Server VMs** from the dropdown menu, and then **List** from the left-hand menu.
+#. Within **Era**, select **Database Server VMs** from the drop-down menu, and then **List** from the left-hand menu.
 
    .. figure:: images/11.png
 
 #. Click **+ Register > Microsoft SQL Server > Single Node Server VM** and fill out the following fields:
 
-   - **IP Address or Name of VM** - *UserXX*\ **-MSSQLSourceVM**
+   - **IP Address or Name of VM** - *USERXX*\ **-MSSQLSourceVM**
    - **Windows Administrator Name** - Administrator
    - **Windows Administrator Password** - Nutanix/4u
    - **Instance** - MSSQLSERVER (This should auto-populate after providing credentials)
@@ -153,7 +153,7 @@ You must meet the following Era requirements before you register a SQL Server da
 
    .. note::
 
-      If *MSSQLSERVER* doesn't automatically populate in the *Instance* field, this could indicate that the Windows Firewall in your *UserXX*\ **-MSSQLSourceVM** VM may not have been disabled correctly.
+      If *MSSQLSERVER* doesn't automatically populate in the *Instance* field, this could indicate that the Windows Firewall in your *USERXX*\ **-MSSQLSourceVM** VM may not have been disabled correctly.
 
    .. figure:: images/12.png
 
@@ -165,7 +165,7 @@ You must meet the following Era requirements before you register a SQL Server da
 
 #. Click **Register** to begin ingesting the Database Server into Era.
 
-#. Select **Operations** from the dropdown menu to monitor the registration. This process should take approximately 5 minutes.
+#. Select **Operations** from the drop-down menu to monitor the registration. This process should take approximately 5 minutes.
 
    .. figure:: images/13.png
 
@@ -178,7 +178,7 @@ Creating A Software Profile
 
 Before additional SQL Server VMs can be provisioned, a Software Profile must first be created from the database server VM registered in the previous step. A software profile is a template that includes the SQL Server database and operating system. This template exists as a hidden, cloned disk image on your Nutanix storage.
 
-#. Within **Era**, select **Profiles** from the dropdown menu, and then **Software** from the left-hand menu.
+#. Within **Era**, select **Profiles** from the drop-down menu, and then **Software** from the left-hand menu.
 
    .. figure:: images/14.png
 
@@ -197,10 +197,10 @@ Before additional SQL Server VMs can be provisioned, a Software Profile must fir
 
 #. Click **Create**.
 
-#. Select **Operations** from the dropdown menu to monitor the registration. This process should take approximately 2 minutes.
+#. Select **Operations** from the drop-down menu to monitor the registration. This process should take approximately 2 minutes.
 
    .. figure:: images/16.png
 
    .. note::
 
-       If creating a profile from a server not gracefully shut down, it may be corrupt or may not provision successfully. Please ensure that *UserXX*\ **-MSSQLSourceVM** had a clean shutdown, and clean startup before registering profile to Era.
+       If creating a profile from a server not gracefully shut down, it may be corrupt or may not provision successfully. Please ensure that *USERXX*\ **-MSSQLSourceVM** had a clean shutdown, and clean startup before registering profile to Era.

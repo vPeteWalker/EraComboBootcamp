@@ -47,7 +47,7 @@ In this lab you will leverage multiple pre-built Calm Blueprints to provision yo
 
 #. Fill out the following fields:
 
-   - **Project Name** - *UserXX*\ -Project
+   - **Project Name** - *USERXX*\ -Project
    - Under **Users, Groups, and Roles**, select **+ User**
       - **Name** - Administrators
       - **Role** - Project Admin
@@ -73,7 +73,7 @@ In this lab you will leverage multiple pre-built Calm Blueprints to provision yo
 
   #. Fill out the following fields to complete the user VM request:
 
-     - **Name** - *UserXX*\ -WinToolsVM
+     - **Name** - *USERXX*\ -WinToolsVM
      - **Description** - Manually deployed Tools VM
      - **vCPU(s)** - 2
      - **Number of Cores per vCPU** - 1
@@ -91,4 +91,4 @@ In this lab you will leverage multiple pre-built Calm Blueprints to provision yo
 
   #. Click **Save** to create the VM.
 
-  #. Power on your *UserXX*\ **-WinToolsVM**.
+  #. Power on your *USERXX*\ **-WinToolsVM**.

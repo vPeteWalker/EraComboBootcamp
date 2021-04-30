@@ -26,7 +26,7 @@ In this lab you will leverage multiple pre-built Calm Blueprints to provision yo
       - **Action** - Save
    - Within *Infrastructure* section, click **Select Provider > Nutanix**
    - Click **Select Clusters & Subnets**
-   - Select *Your Assigned Cluster* from the dropdown
+   - Select *Your Assigned Cluster* from the drop-down
    - Within *Subnets for cluster...*, click **Primary**, and then click **Confirm**
    - Mark **Primary** as the default network by clicking the :fa:`star`
 

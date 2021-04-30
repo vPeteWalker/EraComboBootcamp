@@ -13,7 +13,7 @@ Whereas with a Nutanix cluster and Era, provisioning and protecting a database s
 Source MSSQL VM
 +++++++++++++++++++++
 
-#. Log in to your  *UserXX*\ **-MSSQLSourceVM** (**Cancel** Shutdown Event Tracker):
+#. Log in to your  *USERXX*\ **-MSSQLSourceVM** (**Cancel** Shutdown Event Tracker):
 
    - **Username** - Administrator
    - **Password** - Nutanix/4u
@@ -40,7 +40,7 @@ Source MSSQL VM
   #. Fill out the following fields:
 
      - **Number Of Clones** - 1
-     - **Name** - *UserXX*-MSSQL
+     - **Name** - *USERXX*-MSSQL
      - **vCPU(s)** - 2
      - **Number of Cores per vCPU** - 1
      - **Memory** - 4 GiB
@@ -82,7 +82,7 @@ Era is distributed as a virtual appliance that can be installed on either AHV or
    - **Username** - admin
    - **Password** - *<Cluster Password>*
 
-#. From the dropdown menu, select **Administration**.
+#. From the drop-down menu, select **Administration**.
 
 #. Under **Era Service**, note that Era has already been configured for your assigned cluster.
 
@@ -98,13 +98,13 @@ Era is distributed as a virtual appliance that can be installed on either AHV or
    ..
    ..    .. figure:: images/era_networks_001.png
 
-#. From the dropdown menu, select **SLAs**.
+#. From the drop-down menu, select **SLAs**.
 
    .. figure:: images/7a.png
 
    Era has five built-in SLAs (Gold, Silver, Bronze, Brass, and Zero). SLAs control how the database server is backed up. This can be with a combination of Continuous Protection, Daily, Weekly, Monthly, and Quarterly protection intervals.
 
-#. From the dropdown menu, select **Profiles**.
+#. From the drop-down menu, select **Profiles**.
 
    Profiles pre-define resources and configurations, making it simple to consistently provision environments and reduce configuration sprawl. For example, Compute Profiles specify the size of the database server, including details such as vCPUs, cores per vCPU, and memory.
 
@@ -136,15 +136,15 @@ You must meet the following requirements before you register a SQL Server databa
 
 .. note::
 
-   Your *UserXX*\ **-MSSQLSourceVM** VM meets all of these criteria.
+   Your *USERXX*\ **-MSSQLSourceVM** VM meets all of these criteria.
 
-#. In **Era**, select **Database Server VMs** from the dropdown menu, and then **List** from the left-hand menu.
+#. In **Era**, select **Database Server VMs** from the drop-down menu, and then **List** from the left-hand menu.
 
    .. figure:: images/11.png
 
 #. Click **+ Register > Microsoft SQL Server > Single Node Server VM** and fill out the following fields:
 
-   - **IP Address or Name of VM** - *UserXX*\ **-MSSQLSourceVM**
+   - **IP Address or Name of VM** - *USERXX*\ **-MSSQLSourceVM**
    - **Windows Administrator Name** - Administrator
    - **Windows Administrator Password** - Nutanix/4u
    - **Instance** - MSSQLSERVER (This should auto-populate after providing credentials)
@@ -153,7 +153,7 @@ You must meet the following requirements before you register a SQL Server databa
 
    .. note::
 
-      If **Instance** does not automatically populate, disable the Windows Firewall in your *UserXX*\ **-MSSQLSourceVM** VM.
+      If **Instance** does not automatically populate, disable the Windows Firewall in your *USERXX*\ **-MSSQLSourceVM** VM.
 
    .. figure:: images/12.png
 
@@ -165,7 +165,7 @@ You must meet the following requirements before you register a SQL Server databa
 
 #. Click **Register** to begin ingesting the database server into Era.
 
-#. Select **Operations** from the dropdown menu to monitor the progress. This process should take approximately 5 minutes.
+#. Select **Operations** from the drop-down menu to monitor the progress. This process should take approximately 5 minutes.
 
    .. figure:: images/13.png
 
@@ -178,15 +178,15 @@ Creating A Software Profile
 
 Before additional SQL Server VMs can be provisioned, a Software Profile must first be created from the database server VM registered in the previous step. A software profile is a template that includes the SQL Server database and operating system. This template exists as a hidden, cloned disk image on your Nutanix storage.
 
-#. Select **Profiles** from the dropdown menu, and then **Software** from the left-hand menu.
+#. Select **Profiles** from the drop-down menu, and then **Software** from the left-hand menu.
 
    .. figure:: images/14.png
 
 #. Click **+ Create > Microsoft SQL Server** and fill out the following fields:
 
-   - **Profile Name** - *UserXX*\ _MSSQL_2016
+   - **Profile Name** - *USERXX*\ _MSSQL_2016
    - **Description** - (Optional)
-   - **Database Server** - Select your registered *UserXX*\ -MSSQL VM
+   - **Database Server** - Select your registered *USERXX*\ -MSSQL VM
 
    .. figure:: images/15.png
 
@@ -197,10 +197,10 @@ Before additional SQL Server VMs can be provisioned, a Software Profile must fir
 
 #. Click **Create**.
 
-#. Select **Operations** from the dropdown menu to monitor the registration. This process should take approximately 2 minutes.
+#. Select **Operations** from the drop-down menu to monitor the registration. This process should take approximately 2 minutes.
 
    .. figure:: images/16.png
 
    .. note::
 
-       If creating a profile from a server not gracefully shut down, it may be corrupt or may not provision successfully. Please ensure that *UserXX*\ **-MSSQLSourceVM** had a clean shutdown, and clean startup before registering profile to Era.
+       If creating a profile from a server not gracefully shut down, it may be corrupt or may not provision successfully. Please ensure that *USERXX*\ **-MSSQLSourceVM** had a clean shutdown, and clean startup before registering profile to Era.
