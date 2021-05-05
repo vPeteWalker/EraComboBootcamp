@@ -56,20 +56,20 @@
 
 .. _getting_started:
 
----------------
+###############
 Getting Started
----------------
+###############
 
-Welcome to the Databases bootcamp. This bootcamp is meant to provide you with first hand experience in why Nutanix is an ideal platform for database workloads.
+Welcome to the *Databases: Era Combo Bootcamp, with Oracle and MSSQL* bootcamp. This bootcamp is meant to provide you with first-hand experience as to why Nutanix is the ideal platform for database workloads.
 
-Historically, it has been a challenge to virtualize Microsoft SQL Server because of the high cost of traditional virtualization stacks, and the impact that a SAN-based architecture can have on performance. Businesses and their IT departments have constantly fought to balance cost, operational simplicity, and consistent predictable performance.
+Historically, it has been a challenge to virtualize Microsoft SQL Server because of the high cost of traditional virtualization stacks, and the negative impact that a SAN-based architecture can have on performance. Businesses and their IT departments have constantly fought to balance cost, operational simplicity, and consistent, predictable performance.
 
 The Nutanix Enterprise Cloud removes many of these challenges, and makes virtualizing a business-critical application such as Microsoft SQL Server much easier. The Acropolis Distributed Storage Fabric (ADSF) is a software-defined solution that provides all the features one typically expects in an enterprise SAN, without a typical SAN’s physical limitations and bottlenecks. Microsoft SQL Server particularly benefits from the following ADSF features:
 
 - Localized I/O, and the use of flash for index and key database files to lower operation latency.
 - A highly distributed approach that can handle both random and sequential workloads.
-- The ability to add new nodes and scale the infrastructure without system downtime or performance impact.
-- Built-in Nutanix data protection and disaster recovery workflows that simplify backup operations and business continuity processes.
+- The ability to add new nodes to scale the infrastructure without either system downtime or performance impact.
+- Built-in Nutanix data protection, and disaster recovery workflows that simplify backup operations, and business continuity processes.
 
 In addition to solving common infrastructure problems for hosting business critical applications, Nutanix also seeks to address many of the key pain points associated with managing databases.
 
@@ -87,76 +87,84 @@ Maintaining the status quo leads to inefficient usage of both storage, and perha
 
 .. figure:: images/5.png
 
-Nutanix Era provides DBaaS for your Enterprise Cloud. Leveraging the Nutanix Enterprise Cloud, we are able to take advantage of the power of full stack - storage, compute, and software. Nutanix Era hides the complexity of database operations and provides common APIs, CLI, and consumer-grade GUI experience for multiple database engines. It makes database operations such as cloning efficient, thereby driving down the TCO of database management for our customers.
+Nutanix Era provides Database as a Service (DBaaS) within your environment. Leveraging the Nutanix Enterprise Cloud, we are able to take advantage of the power of full stack: storage, compute, and software. Nutanix Era abstracts the complexity of database operations, and provides common APIs, CLI, and a consumer-grade GUI experience for multiple database engines. It makes database operations (such as cloning) efficient, thereby driving down the TCO of database management for our customers.
 
-
+**********
 What's New
-++++++++++
-
+**********
 
 - Workshop updated for the following software versions:
-    - AOS 5.17.x | 5.18.x | 5.19.x
-    - Prism 2020.11
-    - Era 2.1.0
+    - AOS: 5.19.2
+    - Prism Central: pc.2021.3.0.1
+    - Era 2.1.1.2
 
-- Optional Lab Updates:
+.. - Optional Lab Updates:
 
+******
 Agenda
-++++++
+******
 
 - Introductions
 - Lab Setup
 
+********************
 Era with MSSQL Track
-....................
+********************
 
-- Deploy MSSQL (?)
+- Deploy MSSQL
 - Admin MSSQL with Era
 - Deploy MSSQL with Era
-- Patch MSSQL with Era (?)
+- Patch MSSQL with Era
 
+*********************
 Era with Oracle Track
-.....................
+*********************
 
-- Deploy Oracle (?)
+- Deploy Oracle
 - Deploy Oracle with Era
 - Patch Oracle with Era
 - Admin Oracle with Era
 
-Optional labs:
+*************
+Optional labs
+*************
 
 - Monitoring Applications with Prism Ultimate
 - Era API
 
+*************
 Introductions
-+++++++++++++
+*************
 
 - Name
-- Familiarity with Nutanix
+- Familiarity with Nutanix?
 
+*************
 Initial Setup
-+++++++++++++
+*************
 
 - Take note of the *Passwords* being used
 - Log into your virtual desktops (connection info below)
 
+******************
 Cluster assignment
-++++++++++++++++++
+******************
 
 The instructor will tell the attendees their assigned clusters
 
 .. note::
   If these are Single Node Clusters (SNCs) pay close attention to networking. The SNCs are setup and configured differently compared to the three/four node clusters. Details are within the different cluster sections directly below.
 
+*******************
 Environment Details
-+++++++++++++++++++
+*******************
 
 Nutanix Workshops are intended to be run in the Nutanix Hosted POC environment. Your cluster will be provisioned with all necessary images, networks, and VMs required to complete the exercises.
 
 Networking
-..........
+==========
 
-As we are able to provide three/four node clusters and single node clusters in the HPOC environment, we need to describe each sort of cluster separately.
+As both three/four node clusters and single node clusters are available in the HPOC environment, we will outline the details of each separately.
 
 Three/Four node HPOC clusters
 -----------------------------
@@ -208,7 +216,7 @@ Each cluster is configured with 2 VLANs which can be used for VMs:
     - 10.38.\ *XYZ*\ .132-10.21.\ *XYZ*\ .253
 
 Single Node HPOC Clusters
--------------------------
+=========================
 
 For some workshops we are using Single Node Clusters (SNCs). The reason for this is to allow more people to have a dedicated cluster, but still have enough free clusters for the larger workshops, including those for customers.
 
@@ -280,7 +288,7 @@ The network in the SNC config is using a /26 network. This splits the network ad
     - 6 Free IPs free for static assignment
 
 Credentials
-...........
+***********
 
 .. note::
 
@@ -339,13 +347,14 @@ Each cluster has a dedicated domain controller VM, **DC**, responsible for provi
 
 .. _clusterdetails:
 
+*******************
 Access Instructions
-+++++++++++++++++++
+*******************
 
 The Nutanix Hosted POC environment can be accessed a number of different ways:
 
 Lab Access User Credentials
-...........................
+===========================
 
 PHX Based Clusters:
 **Username:** PHX-POCxxx-User01 (up to PHX-POCxxx-User20), **Password:** *<Provided by Instructor>*
@@ -354,7 +363,7 @@ RTP Based Clusters:
 **Username:** RTP-POCxxx-User01 (up to RTP-POCxxx-User20), **Password:** *<Provided by Instructor>*
 
 Frame VDI
-.........
+=========
 
 Login to: https://console.nutanix.com/x/labs
 
@@ -362,7 +371,7 @@ Login to: https://console.nutanix.com/x/labs
 **Non-Employees** - Use **Lab Access User** Credentials
 
 Parallels VDI
-.................
+=============
 
 PHX Based Clusters Login to: https://xld-uswest1.nutanix.com
 
@@ -372,7 +381,7 @@ RTP Based Clusters Login to: https://xld-useast1.nutanix.com
 **Non-Employees** - Use **Lab Access User** Credentials
 
 Employee Pulse Secure VPN
-..........................
+=========================
 
 Download the client:
 
@@ -398,11 +407,3 @@ For RTP:
 - **Type** - Policy Secure (UAC) or Connection Server
 - **Name** - X-Labs - RTP
 - **Server URL** - xlv-useast1.nutanix.com
-
-
-Nutanix Version Info
-++++++++++++++++++++
-
-- **AHV Version** - AHV 20170830.337 (AOS 5.11+)
-- **AOS Version** - 5.17.x | 5.18.x | 5.19.x
-- **PC Version** - Prism 2020.11
