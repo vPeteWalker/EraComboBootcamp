@@ -273,7 +273,7 @@ The network in the SNC config is using a /26 network. This splits the network ad
     - 10.38.x.75
     - 10.38.x.139
     - 10.38.x.203
-    - AutoDC IP(DC)
+    - AutoAD IP(DC)
     -
   * - 10.38.x.32-37
     - 10.38.x.96-101
