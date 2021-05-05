@@ -56,9 +56,9 @@
 
 .. _getting_started:
 
-###############
+===============
 Getting Started
-###############
+===============
 
 Welcome to the *Databases: Era Combo Bootcamp, with Oracle and MSSQL* bootcamp. This bootcamp is meant to provide you with first-hand experience as to why Nutanix is the ideal platform for database workloads.
 
@@ -89,9 +89,9 @@ Maintaining the status quo leads to inefficient usage of both storage, and perha
 
 Nutanix Era provides Database as a Service (DBaaS) within your environment. Leveraging the Nutanix Enterprise Cloud, we are able to take advantage of the power of full stack: storage, compute, and software. Nutanix Era abstracts the complexity of database operations, and provides common APIs, CLI, and a consumer-grade GUI experience for multiple database engines. It makes database operations (such as cloning) efficient, thereby driving down the TCO of database management for our customers.
 
-**********
+##########
 What's New
-**********
+##########
 
 - Workshop updated for the following software versions:
     - AOS: 5.19.2
@@ -100,74 +100,75 @@ What's New
 
 .. - Optional Lab Updates:
 
-******
+######
 Agenda
-******
+######
 
 - Introductions
 - Lab Setup
 
-********************
+####################
 Era with MSSQL Track
-********************
+####################
 
 - Deploy MSSQL
 - Admin MSSQL with Era
 - Deploy MSSQL with Era
 - Patch MSSQL with Era
 
-*********************
+#####################
 Era with Oracle Track
-*********************
+#####################
 
 - Deploy Oracle
 - Deploy Oracle with Era
 - Patch Oracle with Era
 - Admin Oracle with Era
 
-*************
+#############
 Optional labs
-*************
+#############
 
 - Monitoring Applications with Prism Ultimate
 - Era API
 
-*************
+#############
 Introductions
-*************
+#############
 
 - Name
 - Familiarity with Nutanix?
 
-*************
+#############
 Initial Setup
-*************
+#############
 
 - Take note of the *Passwords* being used
 - Log into your virtual desktops (connection info below)
 
-******************
+##################
 Cluster assignment
-******************
+##################
 
 The instructor will tell the attendees their assigned clusters
 
 .. note::
   If these are Single Node Clusters (SNCs) pay close attention to networking. The SNCs are setup and configured differently compared to the three/four node clusters. Details are within the different cluster sections directly below.
 
-*******************
+###################
 Environment Details
-*******************
+###################
 
 Nutanix Workshops are intended to be run in the Nutanix Hosted POC environment. Your cluster will be provisioned with all necessary images, networks, and VMs required to complete the exercises.
 
+**********
 Networking
-==========
+**********
 
 As both three/four node clusters and single node clusters are available in the HPOC environment, we will outline the details of each separately.
 
 Three/Four node HPOC clusters
------------------------------
+=============================
 
 Three or four node Hosted POC clusters follow a standard naming convention:
 
@@ -287,6 +288,7 @@ The network in the SNC config is using a /26 network. This splits the network ad
     - Primary network IPAM
     - 6 Free IPs free for static assignment
 
+***********
 Credentials
 ***********
 
@@ -347,14 +349,15 @@ Each cluster has a dedicated domain controller VM, **DC**, responsible for provi
 
 .. _clusterdetails:
 
-*******************
+###################
 Access Instructions
-*******************
+###################
 
 The Nutanix Hosted POC environment can be accessed a number of different ways:
 
+***************************
 Lab Access User Credentials
-===========================
+***************************
 
 PHX Based Clusters:
 **Username:** PHX-POCxxx-User01 (up to PHX-POCxxx-User20), **Password:** *<Provided by Instructor>*
@@ -362,16 +365,18 @@ PHX Based Clusters:
 RTP Based Clusters:
 **Username:** RTP-POCxxx-User01 (up to RTP-POCxxx-User20), **Password:** *<Provided by Instructor>*
 
+*********
 Frame VDI
-=========
+*********
 
 Login to: https://console.nutanix.com/x/labs
 
 **Nutanix Employees** - Use your **NUTANIXDC** credentials
 **Non-Employees** - Use **Lab Access User** Credentials
 
+*************
 Parallels VDI
-=============
+*************
 
 PHX Based Clusters Login to: https://xld-uswest1.nutanix.com
 
@@ -380,8 +385,9 @@ RTP Based Clusters Login to: https://xld-useast1.nutanix.com
 **Nutanix Employees** - Use your **NUTANIXDC** credentials
 **Non-Employees** - Use **Lab Access User** Credentials
 
+*************************
 Employee Pulse Secure VPN
-=========================
+*************************
 
 Download the client:
 
